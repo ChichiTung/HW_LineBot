@@ -3,6 +3,9 @@ import linebot from 'linebot'
 import { scheduleJob } from 'node-schedule'
 import fetchAnime from './commands/fetchAnime.js'
 import fetchCourse from './commands/fetchCourse.js'
+import fetchMovieWeek from './commands/fetchMovieWeek.js'
+import fetchMovieHot from './commands/fetchMovieHot.js'
+import fetchImage from './commands/fetchImage.js'
 import rateUpdate from './utils/rateUpdate.js'
 
 const bot = linebot({
@@ -27,6 +30,13 @@ bot.on('message', event => {
     fetchAnime(event)
   } else if (event.message.text.startsWith('查匯率')) {
     event.reply(USDTWD.toString())
+  } else if (event.message.text.startsWith('本週新片')) {
+    // event.reply('aaaaaaaaaaaaaaaaaa')
+    fetchMovieWeek(event)
+  } else if (event.message.text.startsWith('上映中')) {
+    fetchMovieHot(event)
+  } else if (event.message.text.startsWith('圖片')) {
+    fetchImage(event)
   }
 })
 

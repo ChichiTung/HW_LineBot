@@ -8,16 +8,23 @@ export default async (event) => {
     const { data } = await axios.get('https://wdaweb.github.io/')
     const $ = cheerio.load(data)
     const courses = []
+
     $('#general .card').each(function () {
       const bubble = JSON.parse(JSON.stringify(template))
+
       bubble.hero.url = 'https://wdaweb.github.io/' + $(this).find('img').attr('src').substr(2).trim()
+
       bubble.body.contents[0].text = $(this).find('.card-title').text().trim()
+
       bubble.body.contents[1].contents[0].contents[0].text = $(this).find('.card-description').text().trim()
+
       courses.push(bubble)
     })
+
     const reply = {
       type: 'flex',
       altText: '共通課程查詢結果',
+
       contents: {
         type: 'carousel',
         contents: courses
