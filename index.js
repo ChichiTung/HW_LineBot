@@ -1,15 +1,13 @@
 import 'dotenv/config'
 import linebot from 'linebot'
 import { scheduleJob } from 'node-schedule'
-import express from 'express'
+// import express from 'express'
 import fetchAnime from './commands/fetchAnime.js'
 import fetchCourse from './commands/fetchCourse.js'
 import fetchMovieWeek from './commands/fetchMovieWeek.js'
 import fetchMovieHot from './commands/fetchMovieHot.js'
 import fetchImage from './commands/fetchImage.js'
 import rateUpdate from './utils/rateUpdate.js'
-
-const app = express()
 
 const bot = linebot({
   channelId: process.env.CHANNEL_ID,
@@ -42,18 +40,18 @@ bot.on('message', event => {
     fetchImage(event)
   }
 })
-const linebotParser = bot.parser()
+// const linebotParser = bot.parser()
 
-app.post('/', linebotParser)
+// app.post('/', linebotParser)
 
-app.get('/', (req, res) => {
-  res.status(200).send('ok')
-})
+// app.get('/', (req, res) => {
+//   res.status(200).send('ok')
+// })
 
-app.listen(process.env.PORT || 3000, () => {
-  console.log('機器人啟動')
-})
-
-// bot.listen('/', process.env.PORT || 3000, () => {
+// app.listen(process.env.PORT || 3000, () => {
 //   console.log('機器人啟動')
 // })
+
+bot.listen('/', process.env.PORT || 3000, () => {
+  console.log('機器人啟動')
+})
