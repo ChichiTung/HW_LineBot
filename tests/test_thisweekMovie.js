@@ -17,10 +17,10 @@ const main = async () => {
       const text = $('.release_text').eq(i).text().trim().replace(/\n/g, '  ')
       const photo = $('.release_foto').eq(i).find('img').attr('data-src').trim()
 
-      const clips = $('.btn_s_vedio').eq(i).attr('href').trim()
+      // const clips = $('.btn_s_vedio').eq(i).attr('href').trim()
       const comments = 'https://news.agentm.tw/?s=' + $('.release_movie_name a:even').eq(i).text().trim()
 
-      list.push({ title, expectLevel, time, text, photo, clips, comments })
+      list.push({ title, expectLevel, time, text, photo, comments })
     }
 
     console.log(list)

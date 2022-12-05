@@ -1,10 +1,10 @@
 export default {
-  type: 'text', // ①
+  type: 'text',
   text: 'Select your favorite food category or send me your location!',
-  quickReply: { // ②
+  quickReply: {
     items: [
       {
-        type: 'action', // ③
+        type: 'action',
         imageUrl: 'https://example.com/sushi.png',
         action: {
           type: 'message',
@@ -22,7 +22,7 @@ export default {
         }
       },
       {
-        type: 'action', // ④
+        type: 'action',
         action: {
           type: 'location',
           label: 'Send location'

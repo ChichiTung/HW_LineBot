@@ -22,7 +22,7 @@ export default async (event) => {
       bubble.body.contents[1].contents[0].contents[0].text = $('.release_movie_name a:even').eq(i).text().trim()
 
       // 標題連結=>預告片
-      bubble.body.contents[1].contents[0].contents[0].action.uri = $('.btn_s_vedio').eq(i).attr('href').trim()
+      // bubble.body.contents[1].contents[0].contents[0].action.uri = $('.btn_s_vedio').eq(i).attr('href').trim()
 
       // time table
       // bubble.body.contents[1].contents[0].action.uri =
@@ -47,7 +47,9 @@ export default async (event) => {
 
       // 日期背景顏色
       // 背景顏色
-      bubble.body.contents[2].backgroundColor = bgColor[i % 5 + 2]
+      bubble.body.contents[2].backgroundColor = bgColor[i % 5 + 2
+
+      ]
 
       list.push(bubble)
     }
